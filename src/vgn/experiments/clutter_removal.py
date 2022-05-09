@@ -68,6 +68,8 @@ def run(
             # plan grasps
             state = State(tsdf, pc)
             grasps, scores, timings["planning"] = grasp_plan_fn(state)
+            print("Grasps: ", grasps[0].pose.translation, " width: ", grasps[0].width)
+            print("Scores: ", scores)
 
             if len(grasps) == 0:
                 break  # no detections found, abort this round
